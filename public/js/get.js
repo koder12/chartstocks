@@ -3,7 +3,7 @@ function getData(code) {
     var values = [code.name];
     var xvalues = [code.name + 'x']
     var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + code.name +
-        '&apikey=YC0I1LJZ2QC9QEEQ';
+        '&apikey=<your key here>';
     $.getJSON(url, function (data) {
         var d = data['Time Series (Daily)'];
         $.each(d, function (i, e) {
