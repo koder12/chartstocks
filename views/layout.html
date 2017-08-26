@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chartstocks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/beauter.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/c3.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+</head>
+
+<body>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script> -->
+    <script type="text/javascript" src="/js/d3.min.js"></script>
+    <script type="text/javascript" src="/js/c3.min.js"></script>
+
+
+    <script src="/js/get.js"></script>
+
+    <div id="header">
+        <img id="logo" src="/img/stocks.svg" alt="stocks">
+        <div>
+            <input id="code" type="text" placeholder="Stock code">
+            <button id="c-submit" class="_success" onclick="submitCode()">✚</button>
+        </div>
+    </div>
+
+
+    <div id="inst" class="modalbox-modal">
+
+        <div class="modalbox-modal-content">
+            <span class="-close" id="modalbox-close1">✖</span>
+            <h5><b>Instructions:</b></h5>
+            <ul>
+                <li>Add a Unique, existing Stock Code to get latest data of 100 days.</li>
+                <li>You can zoom the graph and drag it using mouse.</li>
+                <li>You can remove the stocks from the list by pressing ✖</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+
+        <div class="row">
+            <div class="col m9 h">
+                <div id="chart" class="h"></div>
+            </div>
+            <div id="stocks" class="col m3 h">
+                <div class="r">
+                    <h5>Stocks</h5>
+                    <img id="loading" class="hide" src="/img/load.gif" style="height: 20px; margin-bottom: 20px; margin-left: 10px">
+                </div>
+                <ul id="stocks-list">
+                    {% block stocks %} {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        &copy;2017 - <a href="https://github.com/koder12/">koder12</a>
+        <button id="openInst" class="right _primary">?</button>
+    </div>
+    <script src="/js/main.js"></script>
+
+    <script>
+        var modal = document.getElementById('inst');
+
+        var btn = document.getElementById("openInst");
+
+        var span = document.getElementById("modalbox-close1");
+
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

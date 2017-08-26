@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} 
+
+{% block stocks %}
+
+{% for stock in stocks %}
+<li style="border-left-color: {{stock.color}}">{{ stock.name }}<span>&#x2716;</span></li>
+<script>getData({
+    name: '{{ stock.name }}',
+    color: '{{stock.color}}'
+});
+</script>
+{% endfor %}
+
+{% endblock %}

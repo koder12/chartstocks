@@ -1,0 +1,30 @@
+{
+  "name": "chartstocks",
+  "version": "1.0.0",
+  "description": "Chartstocks app",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "charts",
+    "stocks",
+    "node.js",
+    "express",
+    "FCC"
+  ],
+  "engines": {
+    "node": "8.2.1",
+    "npm": "5.3.0"
+  },
+  "author": "koder12",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "3.8.40",
+    "nunjucks": "^3.0.1",
+    "socket.io": "^2.0.3",
+    "tingodb": "^0.5.1",
+    "tungus": "0.0.5"
+  }
+}
